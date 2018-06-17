@@ -78,8 +78,10 @@
         return resourceCache[url];
     }
 
-    /* This function determines if all of the images that have been requested
+    /**
+     * This function determines if all of the images that have been requested
      * for loading have in fact been properly loaded.
+     * @return {Boolean} [description]
      */
     function isReady() {
         var ready = true;
@@ -92,15 +94,20 @@
         return ready;
     }
 
-    /* This function will add a function to the callback stack that is called
+    /**
+     * This function will add a function to the callback stack that is called
      * when all requested images are properly loaded.
+     * @param  {function} func [description]
+     * @return {function}      [description]
      */
     function onReady(func) {
         readyCallbacks.push(func);
     }
 
-    /* This object defines the publicly accessible functions available to
+    /**
+     * This object defines the publicly accessible functions available to
      * developers by creating a global Resources object.
+     * @type {Object}
      */
     window.Resources = {
         load: load,
