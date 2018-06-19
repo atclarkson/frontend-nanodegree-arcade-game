@@ -4,16 +4,15 @@
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [frontend-nanodegree-arcade-game](#frontend-nanodegree-arcade-game)
-	- [Getting Started](#getting-started)
-		- [Prerequisites](#prerequisites)
-		- [Installing](#installing)
-	- [Running the tests](#running-the-tests)
-		- [Break down into end to end tests](#break-down-into-end-to-end-tests)
-		- [And coding style tests](#and-coding-style-tests)
-	- [Deployment](#deployment)
-	- [Built With](#built-with)
+	- [Getting Started <!-- TODO -->](#getting-started-todo-)
+		- [Prerequisites <!-- TODO -->](#prerequisites-todo-)
+		- [Installing <!-- TODO -->](#installing-todo-)
+	- [Running the tests <!-- TODO -->](#running-the-tests-todo-)
+		- [Break down into end to end tests <!-- TODO -->](#break-down-into-end-to-end-tests-todo-)
+		- [And coding style tests <!-- TODO -->](#and-coding-style-tests-todo-)
+	- [Deployment <!-- TODO -->](#deployment-todo-)
+	- [Built With <!-- TODO -->](#built-with-todo-)
 	- [Contributing](#contributing)
-	- [Versioning](#versioning)
 	- [Authors](#authors)
 	- [License](#license)
 	- [Acknowledgments](#acknowledgments)
@@ -82,29 +81,18 @@ Add additional notes about how to deploy this on a live system
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
-## Contributing <!-- TODO -->
+## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+This is coursework as such pull requests will likely not be accepted.
 
-## Versioning <!-- TODO -->
+## Authors
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+* **Adam Clarkson** - *Initial work* - [ATClarkson](https://github.com/atclarkson)
 
-## Authors <!-- TODO -->
+## License
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+Coursework Project, no license
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+## Acknowledgments
 
-## License <!-- TODO -->
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments <!-- TODO -->
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
-
-Does this
+* Random Function from [Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
