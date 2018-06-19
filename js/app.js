@@ -27,8 +27,8 @@ Enemy.prototype.render = function() {
 class Player {
   constructor() {
     this.sprite = 'images/char-cat-girl.png';
-    this.x = 100;
-    this.y = 400;
+    this.x = 2 * 101;
+    this.y = 5 * 83 - 10;
   }
   update(dt) {
     // TODO checkCollisions
@@ -40,16 +40,24 @@ class Player {
   handleInput(keyPress) {
     switch(keyPress) {
     case 'left':
-        this.x -= 100;
+        if (this.x > 0) {
+          this.x -= 101;
+        }
         break;
     case 'right':
-        this.x += 100;
+        if (this.x < 101 * 4) {
+          this.x += 101;
+        }
         break;
     case 'up':
-        this.y -= 87;
+        if (this.y > 0) {
+          this.y -= 83;
+        }
         break;
     case 'down':
-        this.y += 87;
+        if (this.y < 83 * 5) {
+          this.y += 83;
+        }
         break;
     default:
         break;
@@ -61,7 +69,7 @@ class Player {
 // TODO Now instantiate your objects.
 const player = new Player();
 // TODO Place all enemy objects in an array called allEnemies
-allEnemies = [];
+const allEnemies = [];
 // TODO Place the player object in a variable called player
 
 
