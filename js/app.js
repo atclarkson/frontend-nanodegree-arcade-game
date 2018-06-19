@@ -21,7 +21,7 @@ function getRandomIntInclusive(min, max) {
 class Enemy {
   constructor() {
     this.reset();
-    this.x = getRandomIntInclusive(0,colWidth * numRows);
+    this.x = getRandomIntInclusive(-500,colWidth * numRows);
     this.sprite = 'images/enemy-bug.png';
   }
   // Draw the enemy on the screen, required method for game
