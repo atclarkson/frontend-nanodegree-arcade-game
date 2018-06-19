@@ -1,8 +1,8 @@
 const numRows = 5;
 const numCols = 6;
-const colWidth = 83;
-const rowHeight = 101;
-const randomStoneRow = 2; // FIXME remove this test variable
+const colWidth = 101;
+const rowHeight = 83;
+const randomStoneRow = 2; //  TEMP remove this test variable
 
 /**
  * Enemies our player must avoid
@@ -11,9 +11,7 @@ class Enemy {
   constructor() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-    this.x = -100;
-    this.y = rowHeight * randomStoneRow;    // TODO random stone tile 1 of three rows.
-    this.speed = 80; // TODO Random speed value
+    this.reset();
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -26,9 +24,24 @@ class Enemy {
   // Parameter: dt, a time delta between ticks
   update(dt) {
     this.x = this.x + this.speed * dt;
+    if (this.x > colWidth * 5) {
+      this.reset();
+    }
+    //TODO Collision detection
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+  }
+  reset() {
+    function getRandomIntInclusive(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+    }
+    this.x = -100;
+    this.y = rowHeight * getRandomIntInclusive(1,3) - 25;
+    this.speed = getRandomIntInclusive(50, 200);
+
   }
 
 }
@@ -39,8 +52,8 @@ class Enemy {
 class Player {
   constructor() {
     this.sprite = 'images/char-cat-girl.png';
-    this.x = 2 * rowHeight;
-    this.y = (numRows) * colWidth - 10;
+    this.x = 2 * colWidth;
+    this.y = numRows * rowHeight - 10;
   }
   update(dt) {
     // TODO checkCollisions
@@ -53,22 +66,22 @@ class Player {
     switch(keyPress) {
     case 'left':
         if (this.x > 0) {
-          this.x -= rowHeight;
+          this.x -= colWidth;
         }
         break;
     case 'right':
-        if (this.x < rowHeight * 4) {
-          this.x += rowHeight;
+        if (this.x < colWidth * 4) {
+          this.x += colWidth;
         }
         break;
     case 'up':
         if (this.y > 0) {
-          this.y -= colWidth;
+          this.y -= rowHeight;
         }
         break;
     case 'down':
-        if (this.y < colWidth * 5 - 10) {
-          this.y += colWidth;
+        if (this.y < rowHeight * 5 - 10) {
+          this.y += rowHeight;
         }
         break;
     default:
@@ -77,15 +90,18 @@ class Player {
   }
 }
 
-
-// TODO Now instantiate your objects.
+// Now instantiate your objects.
 const player = new Player();
-// TODO Place all enemy objects in an array called allEnemies
-const enemy = new Enemy();
-const allEnemies = [enemy];
-// TODO Place the player object in a variable called player
-
-
+const allEnemies = [];
+const numEnemies = 10;
+(function() {
+  for (let i = 0; i < numEnemies; i++){
+    setTimeout(function(){
+      const enemy = new Enemy();
+      allEnemies.push(enemy);
+    }, 3000);
+  }
+})();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
