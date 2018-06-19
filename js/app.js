@@ -63,6 +63,7 @@ class Enemy {
  */
 class Player {
   constructor() {
+    this.level = 1;
     this.sprite = 'images/char-cat-girl.png';
     this.x = 2 * colWidth;
     this.y = numRows * rowHeight - 10;
@@ -70,11 +71,14 @@ class Player {
   reset() {
     this.x = 2 * colWidth;
     this.y = numRows * rowHeight - 10;
+    buildEnemies();
   }
   update(dt) {
     if (this.y <= 0){
+      this.y = numRows * rowHeight - 10;
       console.log("winner Winner Chicken Dinner");
-      winModal();
+      winnerModal();
+      this.level += 1;
       this.x = 10000;
       // let self = this;
       // setTimeout(function(){
@@ -115,39 +119,52 @@ class Player {
 
 // Now instantiate your objects.
 const player = new Player();
-const allEnemies = [];
-const numEnemies = 6;
-(function() {
-  for (let i = 0; i < numEnemies; i++){
-    //setTimeout(function(){
-      const enemy = new Enemy();
-      allEnemies.push(enemy);
-    //}, 3000);
-  }
-})();
+let allEnemies = [];
+const buildEnemies = function() {
+  allEnemies = [];
+  const numEnemies = player.level;
+  (function() {
+    for (let i = 0; i < numEnemies; i++){
+      //setTimeout(function(){
+        const enemy = new Enemy();
+        allEnemies.push(enemy);
+      //}, 3000);
+    }
+  })();
+}
 
 /**
  * Winner Modal
  */
-// Get the modal
-const modal = document.getElementById('myModal');
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
-// When the user clicks on the button, open the modal
-const winModal = function() {
-    modal.style.display = "block";
-}
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-    player.reset();
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-        player.reset();
-    }
+function winnerModal() {
+  // Get the modal
+  const modal = document.getElementById('myModal');
+  // Get the <span> element that closes the modal
+  const span = document.getElementsByClassName("close")[0];
+  $('#winningLevel .level').html(player.level);
+  // When the user clicks on the button, open the modal
+
+      modal.style.display = "block";
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+      modal.style.display = "none";
+      player.reset();
+  }
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+          player.reset();
+      }
+  }
+  // Get the button to restart the game
+  var nextLevelBtn = document.getElementById("nextLevelBtn");
+  // When the user clicks the button, restart the game
+  nextLevelBtn.onclick = function() {
+      modal.style.display = "none";
+      player.reset();
+  }
 }
 
 
