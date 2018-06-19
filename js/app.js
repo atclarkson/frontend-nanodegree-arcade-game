@@ -37,9 +37,9 @@ class Enemy {
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
     }
-    this.x = -100;
+    this.x = getRandomIntInclusive(-500, -100);
     this.y = rowHeight * getRandomIntInclusive(1,3) - 25;
-    this.speed = getRandomIntInclusive(50, 200);
+    this.speed = getRandomIntInclusive(50, 300);
 
   }
 
@@ -91,13 +91,13 @@ class Player {
 // Now instantiate your objects.
 const player = new Player();
 const allEnemies = [];
-const numEnemies = 10;
+const numEnemies = 6;
 (function() {
   for (let i = 0; i < numEnemies; i++){
-    setTimeout(function(){
+    //setTimeout(function(){
       const enemy = new Enemy();
       allEnemies.push(enemy);
-    }, 3000);
+    //}, 3000);
   }
 })();
 
