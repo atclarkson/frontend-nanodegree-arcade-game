@@ -2,7 +2,6 @@ const numRows = 5;
 const numCols = 6;
 const colWidth = 101;
 const rowHeight = 83;
-const randomStoneRow = 2; //  TEMP remove this test variable
 
 /**
  * Enemies our player must avoid
@@ -20,7 +19,7 @@ class Enemy {
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
-  // TODO Update the enemy's position, required method for game
+  // Update the enemy's position, required method for game
   // Parameter: dt, a time delta between ticks
   update(dt) {
     this.x = this.x + this.speed * dt;
@@ -60,7 +59,6 @@ class Player {
   }
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    // TODO
   }
   handleInput(keyPress) {
     switch(keyPress) {
