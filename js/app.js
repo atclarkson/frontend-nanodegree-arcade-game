@@ -2,6 +2,18 @@ const numRows = 5;
 const numCols = 6;
 const colWidth = 101;
 const rowHeight = 83;
+/**
+ * Generate a Random whole number inclusive of min and max
+ * @param  {Number} min
+ * @param  {Number} max
+ * @return {Number}
+ */
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  //The maximum is inclusive and the minimum is inclusive
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 /**
  * Enemies our player must avoid
@@ -10,7 +22,9 @@ class Enemy {
   constructor() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
+
     this.reset();
+    this.x = getRandomIntInclusive(0,colWidth * numRows);
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -32,14 +46,9 @@ class Enemy {
     // all computers.
   }
   reset() {
-    function getRandomIntInclusive(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
-    }
     this.x = getRandomIntInclusive(-500, -100);
     this.y = rowHeight * getRandomIntInclusive(1,3) - 25;
-    this.speed = getRandomIntInclusive(50, 300);
+    this.speed = getRandomIntInclusive(80, 300);
 
   }
 
