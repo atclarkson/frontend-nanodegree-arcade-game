@@ -20,13 +20,8 @@ function getRandomIntInclusive(min, max) {
  */
 class Enemy {
   constructor() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
     this.reset();
     this.x = getRandomIntInclusive(0,colWidth * numRows);
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
   }
   // Draw the enemy on the screen, required method for game
@@ -48,22 +43,19 @@ class Enemy {
     this.x = getRandomIntInclusive(-500, -100);
     this.y = rowHeight * getRandomIntInclusive(1,3) - 25;
     this.speed = getRandomIntInclusive(80, 300);
-
   }
   collisionDetection(playerPos){
-    var enemy = {x: this.x, y: this.y, width: 78, height: 32}
-    var player = {x: playerPos.x, y: playerPos.y, width: 44, height: 39}
+    var enemy = {x: this.x, y: this.y, width: 78, height: 32};
+    var player = {x: playerPos.x, y: playerPos.y, width: 44, height: 39};
 
     if (enemy.x < player.x + player.width &&
        enemy.x + enemy.width > player.x &&
        enemy.y < player.y + player.height &&
        enemy.height + enemy.y > player.y) {
          console.log("colission");
-      return true;
+         return true;
     }
-
   }
-
 }
 
 /**
@@ -80,7 +72,15 @@ class Player {
     this.y = numRows * rowHeight - 10;
   }
   update(dt) {
-    // TODO checkCollisions
+    if (this.y <= 0){
+      console.log("winner Winner Chicken Dinner");
+      winModal();
+      this.x = 10000;
+      // let self = this;
+      // setTimeout(function(){
+      //   self.reset();
+      // }, 300);
+    }
   }
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -125,6 +125,31 @@ const numEnemies = 6;
     //}, 3000);
   }
 })();
+
+/**
+ * Winner Modal
+ */
+// Get the modal
+const modal = document.getElementById('myModal');
+// Get the <span> element that closes the modal
+const span = document.getElementsByClassName("close")[0];
+// When the user clicks on the button, open the modal
+const winModal = function() {
+    modal.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+    player.reset();
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        player.reset();
+    }
+}
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
