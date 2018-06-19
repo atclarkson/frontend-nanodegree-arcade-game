@@ -160,6 +160,7 @@ function winnerModal() {
   }
   // Get the button to restart the game
   var nextLevelBtn = document.getElementById("nextLevelBtn");
+  nextLevelBtn.focus();
   // When the user clicks the button, restart the game
   nextLevelBtn.onclick = function() {
       modal.style.display = "none";
@@ -175,7 +176,8 @@ document.addEventListener('keyup', function(e) {
         37: 'left',
         38: 'up',
         39: 'right',
-        40: 'down'
+        40: 'down',
+        32: 'space'
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
