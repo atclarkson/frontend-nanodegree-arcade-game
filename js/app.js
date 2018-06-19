@@ -1,3 +1,9 @@
+const numRows = 5;
+const numCols = 6;
+const colWidth = 83;
+const rowHeight = 101;
+const randomStoneRow = 2; // FIXME remove this test variable
+
 /**
  * Enemies our player must avoid
  */
@@ -5,7 +11,9 @@ class Enemy {
   constructor() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-
+    this.x = -100;
+    this.y = rowHeight * randomStoneRow;    // TODO random stone tile 1 of three rows.
+    this.speed = 80; // TODO Random speed value
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -17,6 +25,7 @@ class Enemy {
   // TODO Update the enemy's position, required method for game
   // Parameter: dt, a time delta between ticks
   update(dt) {
+    this.x = this.x + this.speed * dt;
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -30,8 +39,8 @@ class Enemy {
 class Player {
   constructor() {
     this.sprite = 'images/char-cat-girl.png';
-    this.x = 2 * 101;
-    this.y = 5 * 83 - 10;
+    this.x = 2 * rowHeight;
+    this.y = (numRows) * colWidth - 10;
   }
   update(dt) {
     // TODO checkCollisions
@@ -44,22 +53,22 @@ class Player {
     switch(keyPress) {
     case 'left':
         if (this.x > 0) {
-          this.x -= 101;
+          this.x -= rowHeight;
         }
         break;
     case 'right':
-        if (this.x < 101 * 4) {
-          this.x += 101;
+        if (this.x < rowHeight * 4) {
+          this.x += rowHeight;
         }
         break;
     case 'up':
         if (this.y > 0) {
-          this.y -= 83;
+          this.y -= colWidth;
         }
         break;
     case 'down':
-        if (this.y < 83 * 5) {
-          this.y += 83;
+        if (this.y < colWidth * 5 - 10) {
+          this.y += colWidth;
         }
         break;
     default:
@@ -72,7 +81,8 @@ class Player {
 // TODO Now instantiate your objects.
 const player = new Player();
 // TODO Place all enemy objects in an array called allEnemies
-const allEnemies = [];
+const enemy = new Enemy();
+const allEnemies = [enemy];
 // TODO Place the player object in a variable called player
 
 
