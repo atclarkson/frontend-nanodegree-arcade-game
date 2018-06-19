@@ -8,7 +8,7 @@ var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
 };
 
-// Update the enemy's position, required method for game
+// TODO Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
@@ -21,14 +21,48 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+/**
+ * Player Class
+ */
+class Player {
+  constructor() {
+    this.sprite = 'images/char-cat-girl.png';
+    this.x = 100;
+    this.y = 400;
+  }
+  update(dt) {
+    // TODO checkCollisions
+  }
+  render() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    // TODO
+  }
+  handleInput(keyPress) {
+    switch(keyPress) {
+    case 'left':
+        this.x -= 100;
+        break;
+    case 'right':
+        this.x += 100;
+        break;
+    case 'up':
+        this.y -= 87;
+        break;
+    case 'down':
+        this.y += 87;
+        break;
+    default:
+        break;
+    }
+  }
+}
 
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+// TODO Now instantiate your objects.
+const player = new Player();
+// TODO Place all enemy objects in an array called allEnemies
+allEnemies = [];
+// TODO Place the player object in a variable called player
 
 
 
