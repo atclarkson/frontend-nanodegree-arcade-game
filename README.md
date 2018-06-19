@@ -19,67 +19,11 @@
 
 <!-- /TOC -->
 
-<!-- TODO --> One Paragraph of project description goes here
+This is a Frogger clone project for Udacity Front End Nano Degree Program. At time of writing project has all basic functionality to meet specification in the [rubric](https://review.udacity.com/?_ga=1.242571394.1230547285.1451946706#!/rubrics/15/view).
 
-## Getting Started <!-- TODO -->
+## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites <!-- TODO -->
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing <!-- TODO -->
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests <!-- TODO -->
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests <!-- TODO -->
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests <!-- TODO -->
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment <!-- TODO -->
-
-Add additional notes about how to deploy this on a live system
-
-## Built With <!-- TODO -->
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+You can run this on your local machine in your local dec environment or you can run program via [github pages](https://atclarkson.github.io/frontend-nanodegree-arcade-game/)
 
 ## Contributing
 
