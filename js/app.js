@@ -40,15 +40,27 @@ class Enemy {
     if (this.x > colWidth * 5) {
       this.reset();
     }
-    //TODO Collision detection
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+    if(this.collisionDetection(player)) {
+        player.reset();
+    }
   }
   reset() {
     this.x = getRandomIntInclusive(-500, -100);
     this.y = rowHeight * getRandomIntInclusive(1,3) - 25;
     this.speed = getRandomIntInclusive(80, 300);
+
+  }
+  collisionDetection(playerPos){
+    var enemy = {x: this.x, y: this.y, width: 78, height: 32}
+    var player = {x: playerPos.x, y: playerPos.y, width: 44, height: 39}
+
+    if (enemy.x < player.x + player.width &&
+       enemy.x + enemy.width > player.x &&
+       enemy.y < player.y + player.height &&
+       enemy.height + enemy.y > player.y) {
+         console.log("colission");
+      return true;
+    }
 
   }
 
@@ -60,6 +72,10 @@ class Enemy {
 class Player {
   constructor() {
     this.sprite = 'images/char-cat-girl.png';
+    this.x = 2 * colWidth;
+    this.y = numRows * rowHeight - 10;
+  }
+  reset() {
     this.x = 2 * colWidth;
     this.y = numRows * rowHeight - 10;
   }
