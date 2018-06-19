@@ -4,14 +4,7 @@
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [frontend-nanodegree-arcade-game](#frontend-nanodegree-arcade-game)
-	- [Getting Started <!-- TODO -->](#getting-started-todo-)
-		- [Prerequisites <!-- TODO -->](#prerequisites-todo-)
-		- [Installing <!-- TODO -->](#installing-todo-)
-	- [Running the tests <!-- TODO -->](#running-the-tests-todo-)
-		- [Break down into end to end tests <!-- TODO -->](#break-down-into-end-to-end-tests-todo-)
-		- [And coding style tests <!-- TODO -->](#and-coding-style-tests-todo-)
-	- [Deployment <!-- TODO -->](#deployment-todo-)
-	- [Built With <!-- TODO -->](#built-with-todo-)
+	- [Getting Started](#getting-started)
 	- [Contributing](#contributing)
 	- [Authors](#authors)
 	- [License](#license)
